@@ -1,0 +1,11 @@
+[Unit]
+Description=pervyi service 
+
+[Service]
+ExecStart=/home/ivan/Source/ITS/UNIXIS.sh
+WorkingDirectory=/home/ivan/Source/ITS
+User=ivan
+Group=ivan
+
+[Install]
+WantedBy=multi-user.target
