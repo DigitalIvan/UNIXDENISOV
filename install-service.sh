@@ -1,22 +1,17 @@
 #!/bin/bash
 
-SERVICE_NAME='timeout-log'
-SCRIPT_DIR_PATH="$( cd -- "$(dirname "$0")" >/dev/null 2>&1 ; pwd -P )"
-SCRIPT_PATH="$SCRIPT_DIR_PATH/timeout-logger.sh"
-chmod +x "$SCRIPT_DIR_PATH"
+LOG_PATH='/home/ivan/Source/ITS/mortal.log'
+echo /dev/null > "$LOG_PATH"
 
-export DB_PATH="$SCRIPT_DIR_PATH"
-python "$SCRIPT_DIR_PATH/migrate_base.py"
+      echo "start. For stop start push Ctrl+C"
 
-cat > "/etc/systemd/system/$SERVICE_NAME.service" <<EOF
-[Unit]
-Description=Timeout logger
-
-[Service]
-ExecStart=$SCRIPT_PATH
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
-systemctl start "$SERVICE_NAME"
+      while (true)
+     
+      do
+        
+        current_date_time="`date "+%Y-%m-%d %H:%M:%S"`"
+        echo "[$current_date_time]: on active" >> "$LOG_PATH"
+        sleep 3;
+        echo "3 seconds"
+      
+      done;
